@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+{% block title %}test{% endblock %}
+{% block content %}
+<div class="row">
+            <div class="col-2">
+                <div class="list-group">
+                    <a href="/" class="list-group-item {% if not current_category %}active{% endif %}">All</a>
+                    {% for c in categories %}
+                    <a href="{{c.get_absolute_url}}" class="list-group-item {% if current_category.slug == c.slug %}active{% endif %}">
+                        {{c.name}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="alert alert-info" role="alert">
+                    {% if current_category %}{{current_category.name}}{% else %}All places{% endif %}
+                </div>
+            
+            <div class="row">
+            {% for places in places %}
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{places.image.url}}" class="card-img-top" alt="Image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{places.name}}</h5>
+                            <p class="card-text">{{places.description}}</p>
+                            <a href={{places.get_absolute_url}} class="btn btn-primary">Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+</div>
+{% endblock %}

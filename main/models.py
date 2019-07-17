@@ -16,7 +16,7 @@ class Category(models.Model):
             return self.name
 
     def get_absolute_url(self):
-            return reverse('main:place_in_category', args=[self.slug])
+            return reverse('main:places_in_category', args=[self.slug])
 
 
 class Place(models.Model):
@@ -28,7 +28,7 @@ class Place(models.Model):
     description = models.TextField(blank=True)
     meta_description = models.TextField(blank=True)
 
-    entrance_fee = models.DecimalField(max_digits=10, decimal_places=2)
+    address = models.CharField(max_length=200, db_index=True, default='제주')
 
     available_display = models.BooleanField('Display', default=True)
 
@@ -43,5 +43,5 @@ class Place(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('main:place_detail', args=[self.id, self.slug])
+        return reverse('main:places_detail', args=[self.id, self.slug])
 
