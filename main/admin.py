@@ -12,3 +12,5 @@ class PlaceAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug':('name',)}
     list_filter = ['created', 'updated', 'category']
 admin.site.register(Place, PlaceAdmin)
+
+admin.site.register(Comment)

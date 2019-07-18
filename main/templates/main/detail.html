@@ -8,8 +8,23 @@
                 <img src="{{places.image.url}}" width="100%">
             </div>
             <div class="col">
-                
+                {{places.name}}<br><br>
+                {{places.address}}<br><br>
+                {{places.description}}
             </div>
         </div>
     </div>
+
+    <hr>
+    <a class="btn btn-default" href="{% url 'main:add_comment' id=places.id places_slug=places.slug %}">Add comment</a>
+    {% for comment in places.comments.all %}
+        <div class="comment">
+            <div class="date">{{ comment.created_date }}</div>
+            <strong>{{ comment.author }}</strong>
+            <p>{{ comment.text|linebreaks }}</p>
+        </div>
+    {% empty %}
+        <p>No comments here yet :(</p>
+    {% endfor %}
+
     {% endblock %}
