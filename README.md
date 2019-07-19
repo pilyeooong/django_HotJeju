@@ -1,0 +1,1 @@
+파일 업로드를 위해 form 양식에 enctype="multipart/form-data" 추가
