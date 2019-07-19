@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from .forms import *
+from django.views.generic.edit import CreateView
 
 def places_in_category(request, category_slug=None):
     current_category = None
@@ -29,3 +30,17 @@ def add_comment(request, id, places_slug=None):
     else:
         form = CommentForm()
     return render(request, 'main/add_comment.html', {'form':form})
+
+
+class AddPlacesView(CreateView):
+    model = Place
+    fields = ['category', 'name', 'image', 'description', 'address',]
+    template_name = 'main/add_places.html'
+
+    def form_valid(self, form):
+        form.instance.author_id = self.request.user.id
+        if form.is_valid():
+            form.instance.save()
+            return redirect('/')
+        else:
+            return self.render_to_response({'form':form})

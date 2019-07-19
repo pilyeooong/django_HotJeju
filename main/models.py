@@ -25,7 +25,7 @@ class Place(models.Model):
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True, unique=True, allow_unicode=True)
 
-    image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True)
+    image = models.ImageField(upload_to='images/%Y/%m/%d', default='images/no_image.png')
     description = models.TextField(blank=True)
     meta_description = models.TextField(blank=True)
 
