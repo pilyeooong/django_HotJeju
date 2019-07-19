@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from .forms import *
 from django.views.generic.edit import CreateView
+from django.utils.text import slugify   
 
 def places_in_category(request, category_slug=None):
     current_category = None
@@ -40,6 +41,7 @@ class AddPlacesView(CreateView):
     def form_valid(self, form):
         form.instance.author_id = self.request.user.id
         if form.is_valid():
+            form.instance.slug = slugify(form.instance.name, allow_unicode=True)
             form.instance.save()
             return redirect('/')
         else:

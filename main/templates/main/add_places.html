@@ -3,10 +3,10 @@
 Add a Hotplaces !
 {% endblock %}
 {% block content %}
-    <h1>New places</h1>
-    <form method="POST" class="post-form">
+    <h1>New places</h1><br>
+    <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Send</button>
+        <button type="submit" class="btn btn-primary" value="Upload">Upload</button>
     </form>
 {% endblock %}
