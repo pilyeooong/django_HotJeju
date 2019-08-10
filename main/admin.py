@@ -14,3 +14,4 @@ class PlaceAdmin(admin.ModelAdmin):
 admin.site.register(Place, PlaceAdmin)
 
 admin.site.register(Comment)
+admin.site.register(Notice)

@@ -60,4 +60,14 @@ class Comment(models.Model):
     def __str__(self):
         return self.text
 
-
+class Notice(models.Model):
+    author = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, db_index=True, default='공지사항')
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('main:notice_detail', args=[self.id])

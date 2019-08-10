@@ -46,3 +46,12 @@ class AddPlacesView(CreateView):
             return redirect('/')
         else:
             return self.render_to_response({'form':form})
+
+
+def notice_list(request):
+    notices = Notice.objects.all()
+    return render(request,'main/notice_list.html', {'notices': notices})
+
+def notice_detail(request, id):
+    notices = get_object_or_404(Notice, id=id)
+    return render(request, 'main/notice_detail.html', {'notices': notices})

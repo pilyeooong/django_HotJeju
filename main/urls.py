@@ -7,6 +7,8 @@ app_name = 'main'
 
 urlpatterns =[
     path('', places_in_category , name='All_places'),
+    path('notice/' ,notice_list, name='notice_list'),
+    path('notice/<int:id>' ,notice_detail, name='notice_detail'),
     path('add/', AddPlacesView.as_view(), name='add_places'),
     path('<slug:category_slug>/', places_in_category, name='places_in_category'),
     path('<int:id>/<places_slug>/comment/', add_comment, name='add_comment'),
