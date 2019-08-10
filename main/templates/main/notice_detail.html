@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{%load static %}
 {% block content %}
 
 <!DOCTYPE html>
@@ -8,11 +9,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Notice !</title>
 </head>
 <body>
-    {{notices.name}}<br>
-    {{notices.text}}
+    <div class="notice-container">
+        <div class="notice-header">
+            {{notices.name}}
+        </div>
+        <br>
+        <div class="notice-content">
+            {{notices.text}}
+        </div>
+    </div>
+    
 </body>
 </html>
 {% endblock %}

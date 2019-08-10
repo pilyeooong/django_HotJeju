@@ -1,0 +1,12 @@
+.notice-container{
+    display:flex;
+    flex-direction: column;
+    height:300px;
+}
+.notice-header{
+    background:lavender;
+    font-size: 2em;
+}
+.notice-content{
+    
+}
