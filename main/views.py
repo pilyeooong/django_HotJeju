@@ -49,7 +49,7 @@ class AddPlacesView(CreateView):
 
 
 def notice_list(request):
-    notices = Notice.objects.all()
+    notices = Notice.objects.all().order_by('-created_date')
     return render(request,'main/notice_list.html', {'notices': notices})
 
 def notice_detail(request, id):

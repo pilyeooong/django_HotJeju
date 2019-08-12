@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,12 +7,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/hotjeju.css' %}">
     <title>Notice !</title>
 </head>
 <body>
         {% for n in notices %}
-        <a href="{{n.get_absolute_url}}">
-                {{n.name}}</a>
+        <ul>
+                <li><a href="{{n.get_absolute_url}}">{{n.name}}</a></li>
+        </ul>
         {% endfor %}
 </body>
 </html>
