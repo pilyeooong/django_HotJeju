@@ -8,12 +8,11 @@ ul{
     height:300px;
 }
 .notice-header{
-    background:lavender;
     font-size: 2em;
 }
 .notice-content{
     height:800px;
-    border: 2px solid black;
+    
 }
 
 

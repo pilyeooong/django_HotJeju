@@ -14,11 +14,17 @@
 <body>
     <div class="notice-container">
         <div class="notice-header">
-            {{notices.name}}
+            <div class="alert alert-success" role='alert'>
+                {{notices.name}}
+            </div>
         </div>
         <br>
         <div class="notice-content">
-            {{notices.text}}
+            <div class="card">
+                <div class="card-body">
+                    {{notices.text}}
+                </div>
+            </div>
         </div>
     </div>
     
