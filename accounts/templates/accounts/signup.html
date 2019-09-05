@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load account socialaccount %}
+{% providers_media_js %}
+
+{% block content %}
+<div id="main_container">
+    <div class="form_container">
+        <div class="form">
+            <h1 class="title"></h1>
+            <form action="#" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+		        {% for field in form %}
+			    <div class="form-group{% if field.errors %} has-error{% endif %}">
+				    {{ field.label_tag }}
+				    {{ field }}
+				    {% if field.errors %}
+					{% for error in field.errors %}
+					<span class="help-block">{{ error }}</span>
+					{% endfor %}
+				    {% endif %}
+			    </div>
+                {% endfor %}
+                {% if form.non_field_errors %}
+    			{% for error in login_form.non_field_errors %}
+	    		<p class="text-danger"><b>{{ error }}</b></p>
+		    	{% endfor %}
+		        {% endif %}
+                <input class="submit_btn" type="submit" value="가입">
+            </form>
+        </div>
+        <div class="bottom_box">
+            <div>
+                <span>아이디가 있다면 </span><a href="#">로그인</a>
+            </div>
+            <br>
+            <div class="social_account">
+                <a href="{% provider_login_url 'naver' %}"><img src="{% static 'imgs/naver.jpg' %}" alt="naver"></a>
+                <a href="{% provider_login_url 'kakao' %}"><img src="{% static 'imgs/kakao.png' %}" alt="kakao"></a>
+                <a href="{% provider_login_url 'facebook' %}"><img src="{% static 'imgs/facebook.png' %}" alt="facebook"></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

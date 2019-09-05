@@ -1,19 +1,23 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth import authenticate,login
 from django.contrib.auth import logout as django_logout
-from .forms import LoginForm
+from .forms import LoginForm, SignupForm
 
-def account_join(request):
-    if request.method=="POST":
-        if request.POST["password1"]==request.POST['password2']:
-            user = User.objects.create_user(
-                username = request.POST["username"], password = request.POST["password1"])
-            auth.login(request,user)
-            return redirect('/')
-        return render(request, 'account/join.html')
-    return render(request, 'account/join.html')
+def signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+           user = form.save()
+           return redirect('accounts:login')
+    else:
+        form = SignupForm()
+    
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'accounts/signup.html', {'form': form,})
 
 def login_check(request):
     if request.method == "POST":

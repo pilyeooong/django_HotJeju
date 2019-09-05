@@ -1,10 +1,10 @@
-<html>
+
 {% extends 'base.html' %}
 
 {% block content %}
 <div class="container">
     <h1>Join ! </h1>
-    <form method="POST" action="{% url 'account:account_join' %}">
+    <form method="POST" action="{% url 'accounts:signup' %}">
         {% csrf_token%}
         Username:
         <br>
