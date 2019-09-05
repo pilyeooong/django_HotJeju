@@ -11,6 +11,8 @@
     <title>Notice !</title>
 </head>
 <body>
+        <div class="alert alert-info" role='alert'><h1>공지사항</h1></div>
+        <p></p>
         {% for n in notices %}
         <ul>
                 <li><a href="{{n.get_absolute_url}}">{{n.name}}</a></li>

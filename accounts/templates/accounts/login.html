@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+<div id="main_container">
+    <div class="form_container">
+        <div class="form">
+            <h1 class="sprite_insta_big_logo title"></h1>
+            <form method="POST" action="{% url 'accounts:login'%}">
+                {% csrf_token %}
+                <p class="login_user_name">
+                    <label for="id_username">사용자명:</label>
+                    <input id = " {{ form.username.id_for_label }}" maxlength="15" name="{{ form.username.html_name }}">
+                </p>
+
+                <p class="login_user_password">
+                    <label for="id_username">비밀번호:</label>
+                    <input type="password" id="{{ form.password.id_for_label }}" maxlength="15" name = "{{ form.password.html_name }}">
+                </p>
+
+                <input type="submit" class="submit_btn" value="로그인">
+            </form>
+        </div>
+        <div class="bottom_box">
+            <div>
+                <span>아이디가 없으신가요?</span><a href="{% url 'accounts:account_join' %}">회원가입</a>
+            </div>
+            <br>
+            {% get_providers as socialaccount_providers %}
+            {% if socialaccount_providers %}
+            <p>{% blocktrans with site.name as site_name %}소셜아이디를 통한 로그인{% endblocktrans %}</p>
+            <div class="socialaccount_ballot">
+                <ul class="socialaccount_providers">
+                    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                </ul>
+            
+            </div>
+            <br>
+            {% include "socialaccount/snippets/login_extra.html" %}
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+    
+{% endblock %} 

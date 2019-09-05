@@ -49,7 +49,7 @@ class AddPlacesView(CreateView):
 
 
 def notice_list(request):
-    notices = Notice.objects.all().order_by('-created_date')
+    notices = Notice.objects.all().order_by('-created_date') #최신이 위쪽배치
     return render(request,'main/notice_list.html', {'notices': notices})
 
 def notice_detail(request, id):
