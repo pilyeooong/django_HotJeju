@@ -27,6 +27,21 @@ form .helptext{
 }
 
 
+.form_container .login_fail_form{
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    padding: 15px 40px 25px 40px;
+    margin-bottom: 30px;
+}
+
+
+
+.form .login_fail {
+    overflow: hidden;
+    margin: 22px auto 8px;
+}
+
+
 .form label{
     display: inline-block;
     max-width: 100%;

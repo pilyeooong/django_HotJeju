@@ -11,8 +11,7 @@ urlpatterns =[
     path('notice/<int:id>' ,notice_detail, name='notice_detail'),
     path('add/', AddPlacesView.as_view(), name='add_places'),
     path('<slug:category_slug>/', places_in_category, name='places_in_category'),
-    path('<int:id>/<places_slug>/comment/', add_comment, name='add_comment'),
     path('<int:id>/<places_slug>/', places_detail , name='places_detail'),
-    
+    path('<int:id>/<places_slug>/comment/', add_comment, name='add_comment'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
