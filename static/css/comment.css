@@ -1,3 +1,16 @@
+/* places_detail comment section */
+
+.comment{
+    margin:10px 30px;
+}
+.comment_btn{
+    margin:0 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ------------------------------------------------------- */
+/* add comment page */
 .title{
     font-weight: 700;
 }

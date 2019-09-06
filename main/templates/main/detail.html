@@ -44,25 +44,28 @@
             </div>
         </div>
     </div>
-
     <hr>
-    <a class="btn btn-default" href="{% url 'main:add_comment' id=places.id places_slug=places.slug %}">Add comment</a>
     {% for comment in places.comments.all %}
+    <section class="comment_container">
         <div class="comment">
+            <div class="col">
+                <strong>이름 : {{ comment.author }}</strong>
+            </div>
+            <div class="col">
+                {{ comment.text |linebreaks}}
+            </div>
             <div class="col date">
                 {{ comment.created_date }}
             </div>
-            <div class="col">
-                <strong>{{ comment.author }}</strong>
-            </div>
-            <div class="col">
-            <p>{{ comment.text|linebreaks }}</p>
-            </div>
+            <br>
         </div>
+    </section>
     {% empty %}
         <div class="col">
-            <p>No comments here yet :(</p>
+            <p>제일 먼저 댓글을 남겨주세요 :D</p>
         </div>
     {% endfor %}
-
+    <div class="comment_btn">
+        <a class="btn btn-primary" href="{% url 'main:add_comment' id=places.id places_slug=places.slug %}">댓글 작성하기</a>
+    </div>
     {% endblock %}
