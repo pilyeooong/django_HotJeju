@@ -7,9 +7,8 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['author', 'text', ]
 
-class AddForm(forms.ModelForm):
-
-    class Meta:
-        model = Place
-        fields = ['category', 'name', 'image', 'description', 'address',]
+# class AddPlacesForm(forms.ModelForm):
+#     class Meta:
+#         model = Place
+#         fields = ['category', 'name', 'image', 'description', 'address',]
       

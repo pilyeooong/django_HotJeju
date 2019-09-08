@@ -11,8 +11,21 @@ ul{
     font-size: 2em;
 }
 .notice-content{
-    height:800px;
-    
+    height:800px;   
 }
 
 
+/* -------------------------------------------------- */
+/* add_places form part */
+.add_places_title{
+    display:flex;
+    justify-content: center;
+}
+.add_places_title h1{
+    font-weight: 500;
+}
+
+.add_places_submit_btn {
+    display: flex;
+    justify-content: flex-end;
+}
