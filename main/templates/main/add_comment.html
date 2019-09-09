@@ -11,11 +11,8 @@ Add a Comment !
             <div class="comment_small_container">
                 <div class="comment_form">
                     <form method="POST" action="">
-                        {% csrf_token %}                       
-                        <p>
-                            <label class= "title" for="id_text">내용:</label> 
-                            <textarea name="text" maxlength="200" required="" id="id_text"></textarea>
-                        </p>
+                        {% csrf_token %}
+                        {{ form.as_p }}
                         <div class="btn-position">
                             <div class="submit_btn">
                                 <button type="submit" class="save btn btn-primary" >저장</button>             

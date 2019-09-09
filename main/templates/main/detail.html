@@ -58,6 +58,9 @@
                 {{ comment.created_date }}
             </div>
             <br>
+            <div class="edit_comment">
+                <a href="{% url 'main:edit_comment' id=places.id places_slug=places.slug comment_id=comment.id%}">수정하기</a>
+            </div>
         </div>
     </section>
     {% empty %}

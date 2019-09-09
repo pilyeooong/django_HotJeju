@@ -35,20 +35,20 @@ def add_comment(request, id, places_slug=None):
         form = CommentForm()
     return render(request, 'main/add_comment.html', {'form':form})
 
-# def edit_comment(request, id, places_slug=None):
-#     places = get_object_or_404(Place, id=id, slug=places_slug)
-#     comments = get_object_or_404(Comment, id=id)
+def edit_comment(request, id, places_slug=None, comment_id=None):
+    places = get_object_or_404(Place, id=id, slug=places_slug)
+    comment = get_object_or_404(Comment, id=comment_id)
 
-#     if request.method == "POST":
-#         form = CommentForm(request.POST, instance=comments)
-#         if form.is_valid():
-#             comments = form.save(commit=False)
-#             comments.author = request.user
-#             comments.save()
-#             return render(request, 'main/detail.html', {'places':places})
-#     else:
-#         form = CommentForm(instance=comments)
-#     return render(request, 'main/add_comment.html', {'form':form, })
+    if request.method == "POST":
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.places = places
+            comment.save()
+            return render(request, 'main/detail.html', {'places':places})
+    else:
+        form = CommentForm(instance=comment)
+    return render(request, 'main/add_comment.html', {'form':form, })
 
 class AddPlacesView(CreateView):
     model = Place

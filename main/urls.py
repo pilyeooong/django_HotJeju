@@ -13,6 +13,6 @@ urlpatterns =[
     path('<slug:category_slug>/', places_in_category, name='places_in_category'),
     path('<int:id>/<places_slug>/', places_detail , name='places_detail'),
     path('<int:id>/<places_slug>/comment/', add_comment, name='add_comment'),
-    # path('<int:id>/<places_slug>/comment/edit/', edit_comment, name='edit_comment'),
+    path('<int:id>/<places_slug>/comment/<int:comment_id>/', edit_comment, name='edit_comment'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

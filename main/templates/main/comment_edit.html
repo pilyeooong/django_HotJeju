@@ -1,10 +1,10 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <h2>New post</h2>
-    <form method="POST" class="post-form">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-primary">Save</button>
-    </form>
-{% endblock %}
+                       
+                        <p>
+                            <label class= "title" for="id_text">내용:</label> 
+                            <textarea name="text" maxlength="200" required="" id="id_text"></textarea>
+                        </p>
+                        <div class="btn-position">
+                            <div class="submit_btn">
+                                <button type="submit" class="save btn btn-primary" >저장</button>             
+                            </div>
+                        </div>
