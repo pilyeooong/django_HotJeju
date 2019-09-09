@@ -65,7 +65,14 @@
             <p>제일 먼저 댓글을 남겨주세요 :D</p>
         </div>
     {% endfor %}
+    {% if user.is_authenticated %}
     <div class="comment_btn">
         <a class="btn btn-primary" href="{% url 'main:add_comment' id=places.id places_slug=places.slug %}">댓글 작성하기</a>
     </div>
+    {% else %}
+    <div class="comment_btn">
+        <a class="btn btn-danger" href="#">댓글을 작성하려면 로그인을 해주세요</a>
+    </div>
+    
+    {% endif %}
     {% endblock %}

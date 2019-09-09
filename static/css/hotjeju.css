@@ -29,3 +29,27 @@ ul{
     display: flex;
     justify-content: flex-end;
 }
+.places_big_container{
+    
+}
+
+.places_small_container{
+    width:350px;
+    padding-top: 30px;
+    margin:0 auto;
+}
+
+.places_small_container form{
+    width:100%;
+    border:1px solid #e6e6e6;
+    padding:15px 20px 25px 20px;
+}
+
+.places_small_container p :nth-child(2){
+    /* border: 1px solid #e6e6e6; */
+    border-radius: 2px;
+}
+
+.places_input{
+    border:1px solid #e6e6e6;
+}

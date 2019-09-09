@@ -13,5 +13,8 @@ class PlaceAdmin(admin.ModelAdmin):
     list_filter = ['created', 'updated', 'category']
 admin.site.register(Place, PlaceAdmin)
 
-admin.site.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['id','author', 'places' , 'text']
+admin.site.register(Comment, CommentAdmin)
+
 admin.site.register(Notice)
