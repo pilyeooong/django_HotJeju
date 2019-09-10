@@ -53,3 +53,10 @@ ul{
 .places_input{
     border:1px solid #e6e6e6;
 }
+
+.delete_btn{
+    display:flex;
+    justify-content: flex-end;
+    margin:50px 55px;
+}
+

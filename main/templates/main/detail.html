@@ -46,36 +46,47 @@
     </div>
     <hr>
     {% for comment in places.comments.all %}
-    <section class="comment_container">
-        <div class="comment">
+        <section class="comment_container">
+            <div class="comment">
+                <div class="col">
+                    <strong>이름 : {{ comment.author }}</strong>
+                </div>
+                <div class="col">
+                    {{ comment.text |linebreaks}}
+                </div>
+                <div class="col date">
+                    {{ comment.created_date }}
+                </div>
+                {% if comment.author == user.get_username %}
+                <div class="col edit_comment">
+                    <a class="btn btn-primary" href="{% url 'main:edit_comment' id=places.id places_slug=places.slug comment_id=comment.id%}">  수정하기</a>
+                    <a class="btn btn-danger" href="{% url 'main:delete_comment' id=places.id places_slug=places.slug comment_id=comment.id%}">  삭제하기</a>
+                </div>
+                {% endif %}
+            </div>
+            {% empty %}
             <div class="col">
-                <strong>이름 : {{ comment.author }}</strong>
+                <div class="comment title">
+                    <p>제일 먼저 댓글을 남겨주세요 :D</p>
+                </div>
             </div>
-            <div class="col">
-                {{ comment.text |linebreaks}}
-            </div>
-            <div class="col date">
-                {{ comment.created_date }}
-            </div>
-            <br>
-            <div class="edit_comment">
-                <a href="{% url 'main:edit_comment' id=places.id places_slug=places.slug comment_id=comment.id%}">수정하기</a>
-            </div>
+        {% endfor %}
+
+        {% if user.is_authenticated %}
+        <div class="comment_btn">
+            <a class="btn btn-primary" href="{% url 'main:add_comment' id=places.id places_slug=places.slug %}">댓글 작성하기</a>
+        </div>
+        {% else %}
+        <div class="comment_btn">
+            <a class="btn btn-danger" href="#">댓글을 작성하려면 로그인을 해주세요</a>
         </div>
     </section>
-    {% empty %}
-        <div class="col">
-            <p>제일 먼저 댓글을 남겨주세요 :D</p>
+    {% endif %}
+
+    {% if request.user.is_superuser %}
+        <div class="delete_btn">
+            <a class="btn btn-danger" href="{% url 'main:delete_places' id=places.id places_slug=places.slug %}" onclick="return confirm('정말 삭제하시겠습니까?')">삭제하기</a>
         </div>
-    {% endfor %}
-    {% if user.is_authenticated %}
-    <div class="comment_btn">
-        <a class="btn btn-primary" href="{% url 'main:add_comment' id=places.id places_slug=places.slug %}">댓글 작성하기</a>
-    </div>
-    {% else %}
-    <div class="comment_btn">
-        <a class="btn btn-danger" href="#">댓글을 작성하려면 로그인을 해주세요</a>
-    </div>
-    
+
     {% endif %}
     {% endblock %}

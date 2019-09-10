@@ -19,6 +19,10 @@ def places_detail(request, id, places_slug=None):
     places = get_object_or_404(Place, id=id, slug=places_slug)
     return render(request, 'main/detail.html', {'places': places})
 
+def delete_places(request, id, places_slug=None):
+    places = get_object_or_404(Place, id=id, slug=places_slug)
+    places.delete()
+    return redirect('/')
 
 def add_comment(request, id, places_slug=None):
     places = get_object_or_404(Place, id=id, slug=places_slug)
@@ -30,7 +34,8 @@ def add_comment(request, id, places_slug=None):
             comment.author = request.user
             comment.places = places
             comment.save()
-            return render(request, 'main/detail.html', {'places':places})
+            return redirect('main:places_detail', id, places_slug)
+            
     else:
         form = CommentForm()
     return render(request, 'main/add_comment.html', {'form':form})
@@ -42,13 +47,20 @@ def edit_comment(request, id, places_slug=None, comment_id=None):
     if request.method == "POST":
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
-            comment = form.save(commit=False)
+            comment = form.save(commit=False)                
             comment.places = places
             comment.save()
-            return render(request, 'main/detail.html', {'places':places})
+            return redirect('main:places_detail', id, places_slug)
     else:
         form = CommentForm(instance=comment)
     return render(request, 'main/add_comment.html', {'form':form, })
+
+def delete_comment(request, id, places_slug=None, comment_id=None):
+    places = get_object_or_404(Place, id=id, slug=places_slug)
+    comment = get_object_or_404(Comment, id=comment_id)
+    comment.delete()
+    # return render(request, 'main/detail.html', {'places':places})
+    return redirect('main:places_detail', id, places_slug)
 
 class AddPlacesView(CreateView):
     model = Place
