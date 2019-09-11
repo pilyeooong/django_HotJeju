@@ -2,6 +2,10 @@ ul{
     list-style: none;
 }
 
+.logo_title{
+    margin: 0 30px;
+    font-family: 'Pacifico', cursive;
+}
 .notice-container{
     display:flex;
     flex-direction: column;

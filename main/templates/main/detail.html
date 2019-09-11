@@ -60,7 +60,7 @@
                 {% if comment.author == user.get_username %}
                 <div class="col edit_comment">
                     <a class="btn btn-primary" href="{% url 'main:edit_comment' id=places.id places_slug=places.slug comment_id=comment.id%}">  수정하기</a>
-                    <a class="btn btn-danger" href="{% url 'main:delete_comment' id=places.id places_slug=places.slug comment_id=comment.id%}">  삭제하기</a>
+                    <a class="btn btn-danger" href="{% url 'main:delete_comment' id=places.id places_slug=places.slug comment_id=comment.id%}" onclick="return confirm('정말 삭제하시겠습니까?')">  삭제하기</a>
                 </div>
                 {% endif %}
             </div>

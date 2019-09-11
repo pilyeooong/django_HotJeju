@@ -50,7 +50,7 @@ def edit_comment(request, id, places_slug=None, comment_id=None):
             comment = form.save(commit=False)                
             comment.places = places
             comment.save()
-            return redirect('main:places_detail', id, places_slug)
+            return redirect('main:places_detail', id,places_slug)
     else:
         form = CommentForm(instance=comment)
     return render(request, 'main/add_comment.html', {'form':form, })
