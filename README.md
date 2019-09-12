@@ -14,3 +14,5 @@ to 'slugify' at the form -> from django.utils.text import slugify
 을통해 로드
 
 "{% provider_login_url '' %}" 템플릿태그로 출력
+
+python code styleguide / pep8

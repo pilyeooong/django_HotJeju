@@ -1,13 +1,14 @@
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
-from django.conf import settings
+
 
 class Category(models.Model):
     name = models.CharField(max_length=200, db_index=True)
     meta_description = models.TextField(blank=True)
 
-    slug = models.SlugField(max_length=200, db_index=True, unique=True , allow_unicode=True)
+    slug = models.SlugField(max_length=200, db_index=True,
+                            unique=True, allow_unicode=True)
 
     class Meta:
         ordering = ['name']
@@ -15,18 +16,21 @@ class Category(models.Model):
         verbose_name_plural = 'categories'
 
     def __str__(self):
-            return self.name
+        return self.name
 
     def get_absolute_url(self):
-            return reverse('main:places_in_category', args=[self.slug])
+        return reverse('main:places_in_category', args=[self.slug])
 
 
 class Place(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='places')
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL,
+                                 null=True, related_name='places')
     name = models.CharField(max_length=200, db_index=True)
-    slug = models.SlugField(max_length=200, db_index=True, unique=True, allow_unicode=True)
+    slug = models.SlugField(max_length=200, db_index=True, unique=True, 
+                            allow_unicode=True)
 
-    image = models.ImageField(upload_to='images/%Y/%m/%d', default='images/no_image.png')
+    image = models.ImageField(upload_to='images/%Y/%m/%d', 
+                              default='images/no_image.png')
     description = models.TextField(blank=True)
     meta_description = models.TextField(blank=True)
 
@@ -47,9 +51,9 @@ class Place(models.Model):
     def get_absolute_url(self):
         return reverse('main:places_detail', args=[self.id, self.slug])
 
+
 class Comment(models.Model):
     places = models.ForeignKey(Place, on_delete=models.CASCADE, related_name='comments')
-    # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None)
     author = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
