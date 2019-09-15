@@ -49,7 +49,6 @@ def add_comment(request, id, places_slug=None):
             comment.places = places
             comment.save()
             return redirect('main:places_detail', id, places_slug)
-
     else:
         form = CommentForm()
     return render(request, 'main/add_comment.html', {'form': form})
