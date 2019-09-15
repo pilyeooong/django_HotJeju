@@ -5,6 +5,7 @@ from django.utils.text import slugify
 from django.views.generic.edit import CreateView
 
 from .forms import CommentForm
+from .forms import NoticeForm
 from .models import Category
 from .models import Comment
 from .models import Notice
@@ -100,3 +101,16 @@ def notice_list(request):
 def notice_detail(request, id):
     notices = get_object_or_404(Notice, id=id)
     return render(request, 'main/notice_detail.html', {'notices': notices})
+
+
+def add_notice(request):
+    if request.method == "POST":
+        form = NoticeForm(request.POST)
+        if form.is_valid():
+            notice = form.save(commit=False)
+            notice.author = request.user
+            notice.save()
+            return redirect('main:notice_list')
+    else:
+        form = NoticeForm()
+    return render(request, 'main/add_notice.html', {'form': form, })
