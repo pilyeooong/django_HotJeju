@@ -15,4 +15,4 @@ class NoticeForm(forms.ModelForm):
 
     class Meta:
         model = Notice
-        fields = ['name', 'text', ]
+        fields = ['name', 'text']

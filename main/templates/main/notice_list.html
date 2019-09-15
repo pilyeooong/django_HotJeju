@@ -1,13 +1,7 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block content %}
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'css/hotjeju.css' %}">
     <title>Notice !</title>
 </head>
 <body>
@@ -18,6 +12,12 @@
                 <li><a href="{{n.get_absolute_url}}">{{n.name}}</a></li>
         </ul>
         {% endfor %}
+        
+    {% if request.user.is_superuser %}
+        <div class="notice_add_btn">
+            <a class="btn btn-primary" href="{% url 'main:add_notice'%}" >작성하기</a>
+        </div>
+    {% endif %}
 </body>
 </html>
 

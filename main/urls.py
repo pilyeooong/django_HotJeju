@@ -4,6 +4,7 @@ from django.urls import path
 
 from .views import AddPlacesView
 from .views import add_comment
+from .views import add_notice
 from .views import delete_comment
 from .views import delete_places
 from .views import edit_comment
@@ -18,6 +19,7 @@ urlpatterns = [
     path('', places_in_category, name='All_places'),
     path('notice/', notice_list, name='notice_list'),
     path('notice/<int:id>', notice_detail, name='notice_detail'),
+    path('notice/add/', add_notice, name='add_notice'),
     path('add/', AddPlacesView.as_view(), name='add_places'),
     path('<slug:category_slug>/', places_in_category,
          name='places_in_category'),

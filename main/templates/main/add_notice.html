@@ -12,6 +12,10 @@
                     <form method="POST" action="" >
                         {% csrf_token %}                   
                         <p>
+                            <label for="id_name" class="title">제목:</label> 
+                            <input type="text" name="name" value="" maxlength="200" required="" id="id_name">
+                        </p>
+                        <p>
                             <label class= "title" for="id_text">내용:</label> 
                             <textarea name="text" maxlength="200" required="" id="id_text">{{ form.text.value|default_if_none:"" }}</textarea>
                         </p>

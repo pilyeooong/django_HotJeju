@@ -62,4 +62,11 @@ ul{
     justify-content: flex-end;
     margin:50px 55px;
 }
+/* ----------------------------------------- */
+/* notice page */
 
+.notice_add_btn{
+    display:flex;
+    margin:100px 0px;
+    justify-content: flex-end;
+}
