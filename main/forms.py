@@ -1,5 +1,8 @@
 from django import forms
-from .models import *
+
+from .models import Comment
+from .models import Notice
+
 
 class CommentForm(forms.ModelForm):
 
@@ -7,8 +10,9 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['text', ]
 
-# class AddPlacesForm(forms.ModelForm):
-#     class Meta:
-#         model = Place
-#         fields = ['category', 'name', 'image', 'description', 'address',]
-      
+
+class NoticeForm(forms.ModelForm):
+    
+    class Meta:
+        model = Notice
+        fields = ['name', 'text', ]
