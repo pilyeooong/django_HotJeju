@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<head>
+    <title>Notice !</title>
+</head>
+<body>
+        <div class="alert alert-info" role='alert'><h1>공지사항</h1></div>
+        <p></p>
+        {% for n in notices %}
+        <ul>
+                <li><a href="{{n.get_absolute_url}}">{{n.name}}</a></li>
+        </ul>
+        {% endfor %}
+        
+    {% if request.user.is_superuser %}
+        <div class="notice_add_btn">
+            <a class="btn btn-primary" href="{% url 'main:add_notice'%}" >작성하기</a>
+        </div>
+    {% endif %}
+</body>
+</html>
+
+{% endblock %}

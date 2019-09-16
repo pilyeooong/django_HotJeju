@@ -1,0 +1,52 @@
+{%extends 'base.html' %}
+{% block title %}
+{% load crispy_forms_tags %}
+Add a Hotplaces !
+{% endblock %}
+{% block content %}
+    <div class="places_big_container">
+
+        <div class="add_places_title">
+            <h1>핫플 추가하기</h1>
+        </div>
+
+        <div class="places_small_container">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden">
+                <p><label for="id_category" class="title" >Category:</label> 
+                    <select class= "places_input" name="category" required="" id="id_category">
+                        <option value="" selected="">---------</option>
+                        <option value="4">Cafe</option>
+                        <option value="6">Ocean</option>
+                        <option value="5">Restaurants</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="id_name" class="title" >Name:</label> 
+                    <input class= "places_input" type="text" name="name" maxlength="200" required="" id="id_name">
+                </p>
+
+                <p>
+                    <label for="id_image" class="title">Image:</label> 
+                    <input type="file" name="image" accept="image/*" id="id_image">
+                </p>
+
+                <p>
+                    <label for="id_description" class="title">Description:</label>
+                    <textarea class= "places_input" name="description" cols="40" rows="10" id="id_description"></textarea>
+                </p>
+
+                <p>
+                    <label for="id_address" class="title">Address:</label> 
+                    <input class= "places_input" type="text" name="address" value="제주" maxlength="200" required="" id="id_address">
+                </p>
+                
+                <div class="add_places_submit_btn">
+                    <button type="submit" class=" btn btn-primary" value="Upload">Upload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

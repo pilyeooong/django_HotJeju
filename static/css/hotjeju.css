@@ -1,0 +1,72 @@
+ul{
+    list-style: none;
+}
+
+.logo_title{
+    margin: 0 30px;
+    font-family: 'Pacifico', cursive;
+}
+.notice-container{
+    display:flex;
+    flex-direction: column;
+    height:300px;
+}
+.notice-header{
+    font-size: 2em;
+}
+.notice-content{
+    height:800px;   
+}
+
+/* -------------------------------------------------- */
+/* add_places form part */
+.add_places_title{
+    display:flex;
+    justify-content: center;
+}
+.add_places_title h1{
+    font-weight: 500;
+}
+
+.add_places_submit_btn {
+    display: flex;
+    justify-content: flex-end;
+}
+.places_big_container{
+    
+}
+
+.places_small_container{
+    width:350px;
+    padding-top: 30px;
+    margin:0 auto;
+}
+
+.places_small_container form{
+    width:100%;
+    border:1px solid #e6e6e6;
+    padding:15px 20px 25px 20px;
+}
+
+.places_small_container p :nth-child(2){
+    /* border: 1px solid #e6e6e6; */
+    border-radius: 2px;
+}
+
+.places_input{
+    border:1px solid #e6e6e6;
+}
+
+.delete_btn{
+    display:flex;
+    justify-content: flex-end;
+    margin:50px 55px;
+}
+/* ----------------------------------------- */
+/* notice page */
+
+.notice_add_btn{
+    display:flex;
+    margin:100px 0px;
+    justify-content: flex-end;
+}

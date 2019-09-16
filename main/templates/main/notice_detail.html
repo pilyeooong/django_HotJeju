@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{%load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notice !</title>
+</head>
+<body>
+    <div class="notice-container">
+        <div class="notice-header">
+            <div class="alert alert-success" role='alert'>
+                {{notices.name}}
+            </div>
+        </div>
+        <br>
+        <div class="notice-content">
+            <div class="card">
+                <div class="card-body">
+                    {{notices.text}}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+{% endblock %}
