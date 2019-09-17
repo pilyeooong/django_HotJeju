@@ -1,3 +1,6 @@
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFill
+
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
@@ -26,11 +29,13 @@ class Place(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL,
                                  null=True, related_name='places')
     name = models.CharField(max_length=200, db_index=True)
-    slug = models.SlugField(max_length=200, db_index=True, unique=True, 
+    slug = models.SlugField(max_length=200, db_index=True, unique=True,
                             allow_unicode=True)
-
-    image = models.ImageField(upload_to='images/%Y/%m/%d', 
-                              default='images/no_image.png')
+    photo = ProcessedImageField(upload_to='images/%Y/%m/%d',
+                                default='images/no_image.png',
+                                processors=[ResizeToFill(600, 600)],
+                                format='JPEG', options={'quality': 90}
+                                )
     description = models.TextField(blank=True)
     meta_description = models.TextField(blank=True)
 

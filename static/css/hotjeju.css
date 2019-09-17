@@ -70,3 +70,16 @@ ul{
     margin:100px 0px;
     justify-content: flex-end;
 }
+
+
+/* ---------------- */
+
+.card{
+    margin:10px 0px;
+}
+
+.card-body p{
+    overflow: hidden;
+    width: 200px;
+    height: 70px;
+}
