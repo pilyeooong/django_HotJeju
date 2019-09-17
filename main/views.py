@@ -20,7 +20,7 @@ def places_in_category(request, category_slug=None):
     if category_slug:
         current_category = get_object_or_404(Category, slug=category_slug)
         places = places.filter(category=current_category)
-     
+
     return render(request, 'main/list.html', {
         'current_category': current_category,
         'categories': categories,
@@ -79,7 +79,7 @@ def delete_comment(request, id, places_slug=None, comment_id=None):
 
 class AddPlacesView(CreateView):
     model = Place
-    fields = ['category', 'name', 'image', 'description', 'address']
+    fields = ['category', 'name', 'photo', 'description', 'address']
     template_name = 'main/add_places.html'
 
     def form_valid(self, form):

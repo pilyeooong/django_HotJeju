@@ -23,10 +23,10 @@
             {% for places in places %}
                 <div class="col-4">
                     <div class="card">
-                        <img class="card-img-top" src="{{places.image.url}}" alt="Image">
+                        <img class="card-img-top" src="{{places.photo.url}}" alt="photo">
                         <div class="card-body">
                             <h5 class="card-title">{{places.name}}</h5>
-                            <p class="card-text">{{places.description}} </p>
+                            <p class="description card-text">{{places.description}} </p>
                             <a href="{{places.get_absolute_url}}" class="btn btn-secondary">View Detail</a>
                         </div>
                     </div>
