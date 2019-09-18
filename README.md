@@ -6,7 +6,7 @@
 
 ### Client
 
-Following items are core frontend technologies used in this project:
+ Following items are core frontend technologies used in this project:
 
 - HTML
 - CSS
@@ -14,7 +14,7 @@ Following items are core frontend technologies used in this project:
 
 ### Server
 
-Following items are core backend technologies used in this project:
+ Following items are core backend technologies used in this project:
 
 - Django
 
@@ -30,11 +30,10 @@ requirements.txt를 참고하여 모듈 install 후 , ./manage.py runserver (Dja
 
 - to 'slugify' at the form -> from django.utils.text import slugify 
 
--로그인폼 커스터마이징 과정에서 소셜로그인 불러올때,
+- 로그인폼 커스터마이징 과정에서 소셜로그인 불러올때,
 
--{% load account socialaccount %}
- {% providers_media_js %} 을통해 로드
+- {% load account socialaccount %}
+  {% providers_media_js %} 을통해 로드
  "{% provider_login_url '' %}" 템플릿태그로 출력
 
---------------------------------
-python code styleguide / pep8
+- python code styleguide / pep8
