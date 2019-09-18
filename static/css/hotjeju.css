@@ -83,3 +83,34 @@ ul{
     width: 200px;
     height: 70px;
 }
+
+
+/* ----------------- */
+/* 반응형 적용 */
+
+@media screen and (max-width:992px){
+    .category_name{
+        display:none;
+    }
+    .place_list{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .place_list .card-body p{
+        width:60%;
+        overflow:hidden;
+    }
+}
+
+@media screen and (max-width:768px){
+    .place_group{
+        display:flex;
+        flex-direction: column;
+        /* flex-basis: 300px; */
+    }
+    .places .card{
+        width:350%;
+    }
+    
+}
