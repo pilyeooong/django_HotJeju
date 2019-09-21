@@ -4,7 +4,7 @@
 
     {% block content %}
     
-    <div class="container">
+    <div class="detail_layout container">
         <div class="row">
             <div class="col-4">
                 <img src="{{places.photo.url}}" width="100%">
@@ -14,7 +14,7 @@
                 {{places.address}}<br><br>
                 {{places.description}}
             </div>
-            <div id="map" style="width:400px;height:300px;"></div>
+            <div id="map" style="width:300px;height:300px;"></div>
                 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=838a44e9aa8cf004b7c571dec071965b&libraries=services,clusterer,drawing"></script>
                 <script>
 		            var container = document.getElementById('map');
@@ -39,8 +39,7 @@
                             map.setCenter(coords);
                         } 
                     });    
-                    
-	            </script>
+                </script>
             </div>
         </div>
     </div>

@@ -70,8 +70,49 @@ ul{
     margin:100px 0px;
     justify-content: flex-end;
 }
+.notice_container{
+    width: 600px;
+    margin: 0 auto;
+}
 
+.notice_title{
+    display:flex;
+    justify-content: center;
+}
 
+.notice_list{
+    border: 1px solid #e6e6e6;
+}
+.notice_fields{
+    margin: 0px 30px;
+    display:flex;
+    /* justify-content: space-around;   */
+}
+
+.notice_fields p{
+    margin:10px 0px;
+    font-weight: 700;
+}
+.notice_fields p:nth-child(1){
+    margin-left: 32px;
+    margin-right: 388px;
+}
+
+.notices{
+    margin: 15px 0px;
+}
+
+.noti ul{
+    display:flex;
+}
+.noti .notice_page{
+
+    width:187px;
+    overflow:hidden;
+}
+.noti .notice_author{
+    margin-left: 250px;
+}
 /* ---------------- */
 
 .card{
@@ -107,7 +148,7 @@ ul{
     .place_group{
         display:flex;
         flex-direction: column;
-        /* flex-basis: 300px; */
+        flex-basis: 300px;
     }
     .places .card{
         width:350%;
