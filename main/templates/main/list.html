@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-2">   
-        <div class="category_name list-group">
+        <div class="category_name sidebox list-group">
             <a href="/" class="list-group-item {% if not current_category %}active{% endif %}">All</a>
                 {% for c in categories %}
                 <a href="{{c.get_absolute_url}}" class="list-group-item {% if current_category.slug == c.slug %}active{% endif %}">
@@ -16,7 +16,7 @@
     
 
     <div class="place_list col">
-        <div class="alert alert-dark" role="alert">
+        <div class="alert alert-dark categorybox" role="alert">
             {% if current_category %}{{current_category.name}}{% else %}All places{% endif %}
         </div>
         <div class="place_group row">
