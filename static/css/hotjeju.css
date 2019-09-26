@@ -3,33 +3,49 @@ ul{
 }
 
 #header{
-    z-index:50;
+    z-index:100;
     width:100%;
     transition:all 1s;
+    /* border: 1px solid #e6e6e6; */
 }
 nav{
     height:70px;
-    transition:all 1s;
+    transition:1s;
 }
 
 #header.on{
+    z-index: 100;
     position:fixed;
 }
 #header.on nav{
-    height:50px;
+    height:60px;
+}
+
+.container{
+    margin-top:40px;
 }
 .sidebox{
-    transition:all 1s;
+    /* position:fixed;
+    top:100px; */
+    margin-top: 10px;
+    width:138px;
+    transition:all 0.5s;
 }
 .sidebox.on{
     position:fixed;
-    top:70px;
-    left:7%;
+    top:11.5%;
+    left:11.5%;
+    width:11.2%;
 }
 
 .logo_title{
-    margin: 0 30px;
+    margin-left:11%;
     font-family: 'Pacifico', cursive;
+}
+
+.logo_title a{
+    font-weight: 700;
+    color:blue;
 }
 .notice-container{
     display:flex;
@@ -107,19 +123,22 @@ nav{
 
 .notice_list{
     border: 1px solid #e6e6e6;
+    border-radius: 3px;
 }
 .notice_fields{
-    margin: 0px 30px;
+    /* margin: 0px 30px; */
     display:flex;
+    border:1px solid #e6e6e6;
     /* justify-content: space-around;   */
 }
 
+
 .notice_fields p{
-    margin:10px 0px;
+    margin:10px 22px;
     font-weight: 700;
 }
 .notice_fields p:nth-child(1){
-    margin-left: 32px;
+    margin-left: 40px;
     margin-right: 388px;
 }
 
@@ -149,7 +168,6 @@ nav{
     width: 200px;
     height: 70px;
 }
-
 
 /* ----------------- */
 /* 반응형 적용 */
